@@ -1,0 +1,50 @@
+/* Style général du body */
+body {
+    background-color: rgb(37, 166, 37);
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header h1 {
+    background-color: yellow;
+    text-align: center;
+}
+
+header h2 {
+    color: white;
+    font-family: Courier, monospace;
+    text-align: center;
+    font-size: 100%;
+}
+
+header h3 {
+    background-color: yellow;
+    text-align: center;
+}
+
+/* Image dans le header */
+header img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+/* Contenu principal */
+#contenu {
+    padding: 20px;
+}
+
+/* Bouton */
+button#click {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
