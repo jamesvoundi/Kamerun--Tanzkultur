@@ -6,10 +6,7 @@
   <title>kulturelle Tänze im kamerun</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
- 
-
-
-</head>
+ </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
 
   <h1 class="text-center text-6xl font-bold text-gray-800 mb-10 animate-bounce">KULTURELLE TÄNZE IM KAMERUN</h1>
@@ -19,10 +16,32 @@
    <img src="https://th.bing.com/th/id/OIP._wgOKh_vKCUaHTjYhFCuWAHaKI?w=202&h=277&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Carte du Cameroun" class="w-full max-w-3xl rounded-xl shadow-lg mb-8">
 <!-- Boutons des régions -->
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-4xl">
-    <button onclick="playAndShow('Centre', this)" class="region-button bg-yellow-500 hover:bg-yellow-600 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Centre</button>
-    <button onclick="playAndShow('Littoral', this)" class="region-button bg-green-600 hover:bg-green-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Littoral</button>
+    <button onclick="playAndShow('Sud', this)" class="region-button bg-yellow-500 hover:bg-yellow-600 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Sud</button>
+  <div>
+    <h2 class="text-xl font-semibold text-gray-800 mt-2 mb-2">🎭 Vorstellung des Tanzes Bikutsi von SUD</h2>
+    <p>clicke auf Button, um das video abzuspielen &#9654;&#65039</p> 
+  <ul class="list-disc list-inside text-gray-700 mb-4">
+    <li><strong>Musik:</strong> kraftvolle Trommelrhythmen mit traditionellen Instrumenten</li>
+    <li><strong>Gesang:</strong> Ruf- und Antwortgesänge zwischen Anführer und Gruppe</li>
+    <li><strong>Bewegungen:</strong> Kreisförmige, synchronisierte und dynamische Tänze</li>
+    <li><strong>Bekleidung:</strong> traditionelle Kostüme aus Raphia, oft bemalt, mit natürlichen Schmuckstücken</li>
+
+  </ul>
+
+  </div>
+  <button onclick="playAndShow('Littoral', this)" class="region-button bg-green-600 hover:bg-green-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Littoral</button>
+  <div>
+    <h2 class="text-xl font-semibold text-gray-800 mt-2 mb-2">🎭 Vorstellung des Tanzes Assiko von LITTORAL</h2>
+    <p>clicke auf Button, um das video abzuspielen &#9654;&#65039</p> 
+  <ul class="list-disc list-inside text-gray-700 mb-4">
+    <li><strong>Musik:</strong>Wird mit einer akustischen Gitarre, einer Metallkiste (als Trommel) und manchmal mit Balafon gespielt. Sehr rhythmisch, schnell und lebendig.</li>
+    <li><strong>Gesang:</strong>Der Sänger erzählt Geschichten, oft mit sozialkritischem oder humorvollem Inhalt.</li>
+    <li><strong>Bewegungen:</strong>Schnelle, präzise Fußarbeit, barfuß getanzt, mit vielen kleinen Sprüngen, Hüftbewegungen und Drehungen auf einem Bein.</li>
+    <li><strong>Bekleidung:</strong>Männer: enge Hosen, figurbetonte Hemden, manchmal ein Stirnband. Frauen: Wickelröcke (Pagne), oft mit Kopftuch und traditionellem Schmuck.</li>
+  </ul>
+  </div>
     <button onclick="playAndShow('Nord', this)" class="region-button bg-red-600 hover:bg-red-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Nord</button>
-    <button onclick="playAndShow('Sud', this)" class="region-button bg-blue-600 hover:bg-blue-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Sud</button>
+    <button onclick="playAndShow('Centre', this)" class="region-button bg-blue-600 hover:bg-blue-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Centre</button>
     <button onclick="playAndShow('Est', this)" class="region-button bg-purple-600 hover:bg-purple-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Est</button>
     <button onclick="playAndShow('Ouest', this)" class="region-button bg-pink-500 hover:bg-pink-600 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Ouest</button>
   </div>
@@ -37,64 +56,7 @@
       <div id="modal-video" class="aspect-video w-full"></div>
     </div>
   </div>
-
-  <!-- Son au clic -->
-  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
-
-  <!-- JS -->
+   <audio id="click-sound" src="click.mp3" preload="auto"></audio>
   <script src="script.js"></script>
-</body>
-</html>
-
-
-<script>function playAndShow(region, btn) {
-  const clickSound = document.getElementById("click-sound");
-  clickSound.currentTime = 0;
-  clickSound.play();
-
-  // Animation visuelle sur le bouton
-  btn.classList.add("button-clicked");
-  setTimeout(() => btn.classList.remove("button-clicked"), 300);
-
-  showDance(region);
-}
-
-function showDance(region) {
-  const modal = document.getElementById("modal");
-  const title = document.getElementById("modal-title");
-  const videoContainer = document.getElementById("modal-video");
-
-  const videos = {
-    "Centre": "VIDEO_ID_CENTRE",
-    "Littoral": "xhUIcbYBB08",
-    "Nord": "VIDEO_ID_NORD",
-    "Sud": "VIDEO_ID_SUD",
-    "Est": "VIDEO_ID_EST",
-    "Ouest": "VIDEO_ID_OUEST"
-  };
-
-  title.textContent = "Danse de la région " + region;
-
-  if (videos[region]) {
-    videoContainer.innerHTML = `
-      <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/${videos[region]}"
-        title="Danse région ${region}"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    `;
-  } else {
-    videoContainer.innerHTML = `<p class="text-center text-gray-500">Vidéo non disponible pour cette région.</p>`;
-  }
-
-  modal.classList.remove("hidden");
-}
-
-function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.classList.add("hidden");
-  document.getElementById("modal-video").innerHTML = "";
-}
-</script>
+  </body>
+  </html>
