@@ -1,47 +1,100 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kulturelle Tanz im Kamerun</title>
+  <title>kulturelle Tänze im kamerun</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+ 
+
+
 </head>
-<body class="p-6">
-  <header class="text-center text-4xl font-bold text-gray-800 mb-10 animate-bounce">KULTURELLE TANZ IM KAMERUN
-  </header>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
 
-  <main class="flex flex-col items-center">
-    <img src="https://th.bing.com/th/id/OIP._wgOKh_vKCUaHTjYhFCuWAHaKI?w=202&h=277&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Carte du Cameroun" class="w-full max-w-3xl rounded-xl shadow-lg mb-8">
+  <h1 class="text-center text-6xl font-bold text-gray-800 mb-10 animate-bounce">KULTURELLE TÄNZE IM KAMERUN</h1>
+  <p class="text-center text-2xl font-bold text-gray-800 mb-10 animate-bounce">kamerun ist ein Land, das reich an kultureller Vielfalt ist.</p>
+  <p class="text-center text-2xl font-bold text-gray-800 mb-10 animate-bounce">Jede Region in Kamerun besitzt einen traditionellen Tanz, der ihre kulturelle Geschichte erzählt.</p>
+  <p class="text-center text-2xl font-bold text-gray-800 mb-10 animate-bounce">Die Karte unten ist die Landkarte von Kamerun, in der Sie die 10 Regionen dieses schönen Landes erkennen können.</p>
+   <img src="https://th.bing.com/th/id/OIP._wgOKh_vKCUaHTjYhFCuWAHaKI?w=202&h=277&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Carte du Cameroun" class="w-full max-w-3xl rounded-xl shadow-lg mb-8">
+<!-- Boutons des régions -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-4xl">
+    <button onclick="playAndShow('Centre', this)" class="region-button bg-yellow-500 hover:bg-yellow-600 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Centre</button>
+    <button onclick="playAndShow('Littoral', this)" class="region-button bg-green-600 hover:bg-green-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Littoral</button>
+    <button onclick="playAndShow('Nord', this)" class="region-button bg-red-600 hover:bg-red-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Nord</button>
+    <button onclick="playAndShow('Sud', this)" class="region-button bg-blue-600 hover:bg-blue-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Sud</button>
+    <button onclick="playAndShow('Est', this)" class="region-button bg-purple-600 hover:bg-purple-700 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Est</button>
+    <button onclick="playAndShow('Ouest', this)" class="region-button bg-pink-500 hover:bg-pink-600 transition-transform transform hover:scale-105 text-white py-2 px-4 rounded-xl">Ouest</button>
+  </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-4xl">
-      <button onclick="showDance('Centre')" class="region-button bg-yellow-500 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Centre</button>
-      <button onclick="showDance('Littoral')" class="region-button bg-green-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Littoral</button>
-      <button onclick="showDance('Nord')" class="region-button bg-red-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Nord</button>
-      <button onclick="showDance('Sud')" class="region-button bg-blue-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Sud</button>
-      <button onclick="showDance('Est')" class="region-button bg-purple-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Est</button>
-      <button onclick="showDance('Ouest')" class="region-button bg-pink-500 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Ouest</button>
-      <button onclick="showDance('Sud-Ouest')" class="region-button bg-orange-500 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Sud-Ouest</button>
-      <button onclick="showDance('Nord-Ouest')" class="region-button bg-indigo-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Nord-Ouest</button>
-      <button onclick="showDance('Adamaoua')" class="region-button bg-teal-600 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Adamaoua</button>
-      <button onclick="showDance('Extrême-Nord')" class="region-button bg-gray-700 text-white py-2 px-4 rounded-xl shadow-lg font-semibold">Extrême-Nord</button>
-    </div>
-  </main>
-
-  <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-xl p-6 max-w-2xl w-full modal animate-fade-in-up">
+  <!-- Modale -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 transition-opacity duration-300">
+    <div class="bg-white rounded-xl p-6 max-w-2xl w-full animate-fade-in-up shadow-xl">
       <div class="flex justify-between items-center mb-4">
         <h2 id="modal-title" class="text-xl font-bold">Danse Régionale</h2>
         <button onclick="closeModal()" class="text-red-500 text-xl">&times;</button>
       </div>
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe id="video-frame" class="w-full h-64 rounded-lg shadow-md" src="" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <div id="modal-video" class="aspect-video w-full"></div>
     </div>
   </div>
 
+  <!-- Son au clic -->
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
+
+
+<script>function playAndShow(region, btn) {
+  const clickSound = document.getElementById("click-sound");
+  clickSound.currentTime = 0;
+  clickSound.play();
+
+  // Animation visuelle sur le bouton
+  btn.classList.add("button-clicked");
+  setTimeout(() => btn.classList.remove("button-clicked"), 300);
+
+  showDance(region);
+}
+
+function showDance(region) {
+  const modal = document.getElementById("modal");
+  const title = document.getElementById("modal-title");
+  const videoContainer = document.getElementById("modal-video");
+
+  const videos = {
+    "Centre": "VIDEO_ID_CENTRE",
+    "Littoral": "xhUIcbYBB08",
+    "Nord": "VIDEO_ID_NORD",
+    "Sud": "VIDEO_ID_SUD",
+    "Est": "VIDEO_ID_EST",
+    "Ouest": "VIDEO_ID_OUEST"
+  };
+
+  title.textContent = "Danse de la région " + region;
+
+  if (videos[region]) {
+    videoContainer.innerHTML = `
+      <iframe class="w-full h-full"
+        src="https://www.youtube.com/embed/${videos[region]}"
+        title="Danse région ${region}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+  } else {
+    videoContainer.innerHTML = `<p class="text-center text-gray-500">Vidéo non disponible pour cette région.</p>`;
+  }
+
+  modal.classList.remove("hidden");
+}
+
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.classList.add("hidden");
+  document.getElementById("modal-video").innerHTML = "";
+}
+</script>
