@@ -16,12 +16,12 @@ function showDance(region) {
   const videoContainer = document.getElementById("modal-video");
 
   const videos = {
-    "Centre": "VIDEO_ID_CENTRE",
+    "Centre": "O8o1-AKiIWs",
     "Littoral": "xhUIcbYBB08",
-    "Nord": "VIDEO_ID_NORD",
+    "Nord": "OXnB2VwDZYo",
     "Sud": "j8wnFonIyuY",
-    "Est": "VIDEO_ID_EST",
-    "Ouest": "xhUIcbYBB08"
+    "Est": "H8pF7TNhF_U",
+    "Ouest": "CEX9suowdBg"
   };
 
   title.textContent = "Danse de la région " + region;
