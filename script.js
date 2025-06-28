@@ -21,7 +21,11 @@ function showDance(region) {
     "Nord": "OXnB2VwDZYo",
     "Sud": "j8wnFonIyuY",
     "Est": "H8pF7TNhF_U",
-    "Ouest": "CEX9suowdBg"
+    "Ouest": "CEX9suowdBg",
+    "sud-ouest": "xJWbD11F8Bw",
+    "Nord-ouest": "jmt-eH4hPzU",
+    "Adamaoua": "vETX8Yj8Ylc",
+    "Extreme-nord": "yp5C2QX49c4"
   };
 
   title.textContent = "Danse de la région " + region;
